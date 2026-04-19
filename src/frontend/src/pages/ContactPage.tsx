@@ -11,35 +11,59 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
+import {
+  Building2,
+  Clock,
+  Globe,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+  User,
+} from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-const contactDetails = [
+const locations = [
   {
-    icon: Phone,
-    label: "Phone",
-    value: "+91 98765 43210",
-    sub: "Mon–Sat, 9am–6pm IST",
+    id: "head-office",
+    tag: "Head Office",
+    name: "SS Enterprises — Mumbai",
+    address:
+      "A-11 Hindsaurashtra Industrial Estate, Andheri Kurla Road, Andheri East, Mumbai 400059",
+    phones: ["022-28518090", "022-28516933", "022-66921956", "022-40146506"],
+    email: "mumbai@sspack.in",
+    website: "www.sspack.in",
+    mapsQuery: "A-11+Hindsaurashtra+Industrial+Estate+Andheri+East+Mumbai",
+    accentClass: "bg-primary/10 text-primary border-primary/30",
+    badgeClass: "border-primary/40 text-primary",
   },
   {
-    icon: Mail,
-    label: "Email",
-    value: "info@ssenterprises.in",
-    sub: "We reply within 24 hours",
+    id: "plant-1",
+    tag: "Plant I — Maharashtra",
+    name: "SS Enterprises — Vasai",
+    address:
+      "Unit 16-18, Raj Tilak Industrial Estate, Chinchpada, Gokhiware, Vasai East, Dist Palghar, Maharashtra",
+    phones: ["09323145696"],
+    email: "vasai@sspack.in",
+    website: null,
+    mapsQuery: "Raj+Tilak+Industrial+Estate+Vasai+East+Palghar+Maharashtra",
+    accentClass: "bg-accent/10 text-accent border-accent/30",
+    badgeClass: "border-accent/40 text-accent",
   },
   {
-    icon: MapPin,
-    label: "Address",
-    value: "MIDC Industrial Area, Andheri East, Mumbai 400093",
-    sub: "Maharashtra, India",
-  },
-  {
-    icon: Clock,
-    label: "Working Hours",
-    value: "Monday – Saturday",
-    sub: "9:00 AM – 6:00 PM IST",
+    id: "plant-2",
+    tag: "Plant II — Karnataka",
+    name: "SS Enterprises — Bengaluru",
+    address:
+      "Plot No.58C, Road 1-A, Choklahally Industrial Area, Pillagumpe, Off Chintamani Road, Kasba-Hobli, Hosakote Taluk, Bengaluru, Karnataka 562114",
+    phones: ["080-29905736"],
+    email: "bangalore@sspack.in",
+    website: null,
+    mapsQuery: "Choklahally+Industrial+Area+Hosakote+Bengaluru+Karnataka",
+    accentClass: "bg-primary/10 text-primary border-primary/30",
+    badgeClass: "border-primary/40 text-primary",
   },
 ];
 
@@ -78,7 +102,6 @@ export default function ContactPage() {
       return;
     }
     setSubmitting(true);
-    // Simulated submission — replace with actual backend call
     await new Promise((r) => setTimeout(r, 1200));
     toast.success(
       "Your enquiry has been sent! We'll be in touch within 24 hours.",
@@ -92,7 +115,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section
         className="bg-card border-b border-border py-16 md:py-20"
-        data-ocid="contact-hero"
+        data-ocid="contact.hero"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -112,59 +135,306 @@ export default function ContactPage() {
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed font-body">
               Whether you need a custom quote, product samples, or technical
-              specifications — our team is ready to assist. Reach out and we'll
-              respond within 24 hours.
+              specifications — our team across three locations is ready to
+              assist. Reach out and we'll respond within 24 hours.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Content */}
-      <section className="py-16 bg-background" data-ocid="contact-section">
+      {/* Key Contact Banner */}
+      <section className="bg-primary py-8" data-ocid="contact.key-contact">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col sm:flex-row items-center justify-between gap-6"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-primary-foreground/20 flex items-center justify-center shrink-0">
+                <User className="w-5 h-5 text-primary-foreground" />
+              </div>
+              <div>
+                <div className="text-primary-foreground/70 text-xs uppercase tracking-widest font-body mb-0.5">
+                  Primary Contact
+                </div>
+                <div className="font-display font-bold text-primary-foreground text-xl">
+                  Sumit M Singhvi
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 items-center">
+              <a
+                href="tel:09820145696"
+                className="flex items-center gap-2 text-primary-foreground hover:text-primary-foreground/80 transition-smooth"
+                data-ocid="contact.key-phone-1"
+              >
+                <Phone className="w-4 h-4 shrink-0" />
+                <span className="font-body font-medium">09820145696</span>
+              </a>
+              <span className="text-primary-foreground/40 hidden sm:inline">
+                |
+              </span>
+              <a
+                href="tel:09322145696"
+                className="flex items-center gap-2 text-primary-foreground hover:text-primary-foreground/80 transition-smooth"
+                data-ocid="contact.key-phone-2"
+              >
+                <Phone className="w-4 h-4 shrink-0" />
+                <span className="font-body font-medium">09322145696</span>
+              </a>
+              <span className="text-primary-foreground/40 hidden sm:inline">
+                |
+              </span>
+              <a
+                href="mailto:sumit@sspack.in"
+                className="flex items-center gap-2 text-primary-foreground hover:text-primary-foreground/80 transition-smooth"
+                data-ocid="contact.key-email"
+              >
+                <Mail className="w-4 h-4 shrink-0" />
+                <span className="font-body font-medium">sumit@sspack.in</span>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Location Cards */}
+      <section className="py-16 bg-background" data-ocid="contact.locations">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-10"
+          >
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground tracking-tight mb-2">
+              Our Locations
+            </h2>
+            <p className="text-muted-foreground font-body">
+              Manufacturing and operations across Mumbai, Vasai, and Bengaluru.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {locations.map((loc, i) => (
+              <motion.div
+                key={loc.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                data-ocid={`contact.location.${i + 1}`}
+              >
+                <Card className="border-border shadow-card h-full">
+                  <CardContent className="p-6 flex flex-col gap-5 h-full">
+                    <div>
+                      <Badge
+                        variant="outline"
+                        className={`text-xs uppercase tracking-widest px-2 py-0.5 mb-3 ${loc.badgeClass}`}
+                      >
+                        {loc.tag}
+                      </Badge>
+                      <h3 className="font-display font-bold text-lg text-foreground tracking-tight">
+                        {loc.name}
+                      </h3>
+                    </div>
+
+                    <div className="flex flex-col gap-4 flex-1">
+                      <div className="flex items-start gap-3">
+                        <div
+                          className={`w-8 h-8 rounded-md flex items-center justify-center shrink-0 ${loc.accentClass.split(" ").slice(0, 2).join(" ")}`}
+                        >
+                          <MapPin className="w-3.5 h-3.5" />
+                        </div>
+                        <p className="text-muted-foreground text-sm leading-relaxed font-body">
+                          {loc.address}
+                        </p>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <div
+                          className={`w-8 h-8 rounded-md flex items-center justify-center shrink-0 ${loc.accentClass.split(" ").slice(0, 2).join(" ")}`}
+                        >
+                          <Phone className="w-3.5 h-3.5" />
+                        </div>
+                        <div className="flex flex-col gap-0.5">
+                          {loc.phones.map((ph) => (
+                            <a
+                              key={ph}
+                              href={`tel:${ph.replace(/-/g, "")}`}
+                              className="text-foreground text-sm font-medium hover:text-primary transition-smooth font-body"
+                            >
+                              {ph}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`w-8 h-8 rounded-md flex items-center justify-center shrink-0 ${loc.accentClass.split(" ").slice(0, 2).join(" ")}`}
+                        >
+                          <Mail className="w-3.5 h-3.5" />
+                        </div>
+                        <a
+                          href={`mailto:${loc.email}`}
+                          className="text-foreground text-sm font-medium hover:text-primary transition-smooth font-body break-all"
+                        >
+                          {loc.email}
+                        </a>
+                      </div>
+
+                      {loc.website && (
+                        <div className="flex items-center gap-3">
+                          <div
+                            className={`w-8 h-8 rounded-md flex items-center justify-center shrink-0 ${loc.accentClass.split(" ").slice(0, 2).join(" ")}`}
+                          >
+                            <Globe className="w-3.5 h-3.5" />
+                          </div>
+                          <a
+                            href={`https://${loc.website}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-foreground text-sm font-medium hover:text-primary transition-smooth font-body"
+                          >
+                            {loc.website}
+                          </a>
+                        </div>
+                      )}
+                    </div>
+
+                    <a
+                      href={`https://maps.google.com/?q=${loc.mapsQuery}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-auto"
+                      data-ocid={`contact.directions-btn.${i + 1}`}
+                    >
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full font-display font-semibold border-primary/30 text-primary hover:bg-primary/5 gap-2"
+                      >
+                        <MapPin className="w-3.5 h-3.5" /> Get Directions
+                      </Button>
+                    </a>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Working Hours + Enquiry Form */}
+      <section
+        className="py-16 bg-muted/30"
+        data-ocid="contact.enquiry-section"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            {/* Contact Info */}
+            {/* Left: Info */}
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="flex flex-col gap-5"
+              className="flex flex-col gap-6"
             >
               <div>
                 <h2 className="font-display font-bold text-xl text-foreground mb-1 tracking-tight">
-                  Contact Information
+                  General Information
                 </h2>
                 <p className="text-muted-foreground text-sm">
                   Our team is here to support your packaging needs.
                 </p>
               </div>
 
-              <div className="flex flex-col gap-4">
-                {contactDetails.map((item) => (
-                  <Card key={item.label} className="border-border shadow-card">
-                    <CardContent className="p-4 flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                        <item.icon className="w-4 h-4 text-primary" />
+              <Card className="border-border shadow-card">
+                <CardContent className="p-5 flex flex-col gap-4">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <Clock className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-muted-foreground text-xs uppercase tracking-wide mb-0.5">
+                        Working Hours
                       </div>
-                      <div className="min-w-0">
-                        <div className="text-muted-foreground text-xs uppercase tracking-wide mb-0.5">
-                          {item.label}
-                        </div>
-                        <div className="text-foreground text-sm font-medium break-words">
-                          {item.value}
-                        </div>
-                        <div className="text-muted-foreground text-xs mt-0.5">
-                          {item.sub}
-                        </div>
+                      <div className="text-foreground text-sm font-medium">
+                        Monday – Saturday
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+                      <div className="text-muted-foreground text-xs mt-0.5">
+                        9:00 AM – 6:00 PM IST
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <Building2 className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-muted-foreground text-xs uppercase tracking-wide mb-0.5">
+                        Head Office
+                      </div>
+                      <div className="text-foreground text-sm font-medium">
+                        Andheri East, Mumbai
+                      </div>
+                      <div className="text-muted-foreground text-xs mt-0.5">
+                        Maharashtra 400059
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <Mail className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-muted-foreground text-xs uppercase tracking-wide mb-0.5">
+                        Head Office Email
+                      </div>
+                      <a
+                        href="mailto:mumbai@sspack.in"
+                        className="text-foreground text-sm font-medium hover:text-primary transition-smooth"
+                      >
+                        mumbai@sspack.in
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <Phone className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-muted-foreground text-xs uppercase tracking-wide mb-0.5">
+                        Head Office Phone
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        {[
+                          "022-28518090",
+                          "022-28516933",
+                          "022-66921956",
+                          "022-40146506",
+                        ].map((ph) => (
+                          <a
+                            key={ph}
+                            href={`tel:${ph.replace(/-/g, "")}`}
+                            className="text-foreground text-sm font-medium hover:text-primary transition-smooth"
+                          >
+                            {ph}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
 
-            {/* Contact Form */}
+            {/* Right: Form */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -184,7 +454,7 @@ export default function ContactPage() {
                   <form
                     onSubmit={handleSubmit}
                     className="flex flex-col gap-6"
-                    data-ocid="contact-form"
+                    data-ocid="contact.form"
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="flex flex-col gap-2">
@@ -200,7 +470,7 @@ export default function ContactPage() {
                           value={form.name}
                           onChange={(e) => handleChange("name", e.target.value)}
                           required
-                          data-ocid="input-name"
+                          data-ocid="contact.input-name"
                         />
                       </div>
                       <div className="flex flex-col gap-2">
@@ -217,7 +487,7 @@ export default function ContactPage() {
                           onChange={(e) =>
                             handleChange("company", e.target.value)
                           }
-                          data-ocid="input-company"
+                          data-ocid="contact.input-company"
                         />
                       </div>
                     </div>
@@ -239,7 +509,7 @@ export default function ContactPage() {
                             handleChange("email", e.target.value)
                           }
                           required
-                          data-ocid="input-email"
+                          data-ocid="contact.input-email"
                         />
                       </div>
                       <div className="flex flex-col gap-2">
@@ -257,7 +527,7 @@ export default function ContactPage() {
                           onChange={(e) =>
                             handleChange("phone", e.target.value)
                           }
-                          data-ocid="input-phone"
+                          data-ocid="contact.input-phone"
                         />
                       </div>
                     </div>
@@ -271,7 +541,7 @@ export default function ContactPage() {
                           value={form.industry}
                           onValueChange={(v) => handleChange("industry", v)}
                         >
-                          <SelectTrigger data-ocid="select-industry">
+                          <SelectTrigger data-ocid="contact.select-industry">
                             <SelectValue placeholder="Select your industry" />
                           </SelectTrigger>
                           <SelectContent>
@@ -296,7 +566,7 @@ export default function ContactPage() {
                           value={form.product}
                           onValueChange={(v) => handleChange("product", v)}
                         >
-                          <SelectTrigger data-ocid="select-product">
+                          <SelectTrigger data-ocid="contact.select-product">
                             <SelectValue placeholder="Select product type" />
                           </SelectTrigger>
                           <SelectContent>
@@ -333,7 +603,7 @@ export default function ContactPage() {
                           handleChange("message", e.target.value)
                         }
                         required
-                        data-ocid="input-message"
+                        data-ocid="contact.input-message"
                       />
                     </div>
 
@@ -342,7 +612,7 @@ export default function ContactPage() {
                       size="lg"
                       disabled={submitting}
                       className="self-start font-display font-semibold tracking-wide gap-2"
-                      data-ocid="submit-btn"
+                      data-ocid="contact.submit-btn"
                     >
                       {submitting ? (
                         "Sending..."
@@ -357,50 +627,6 @@ export default function ContactPage() {
               </Card>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Map placeholder */}
-      <section className="py-16 bg-muted/30" data-ocid="map-section">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-display font-bold text-2xl text-foreground mb-6 tracking-tight text-center">
-              Our Factory Location
-            </h2>
-            <Card className="border-border shadow-card overflow-hidden">
-              <div className="bg-muted/40 h-72 flex flex-col items-center justify-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-                  <MapPin className="w-7 h-7 text-primary" />
-                </div>
-                <div className="text-center">
-                  <div className="font-display font-semibold text-foreground text-base">
-                    MIDC Industrial Area, Andheri East
-                  </div>
-                  <div className="text-muted-foreground text-sm mt-1">
-                    Mumbai 400093, Maharashtra, India
-                  </div>
-                </div>
-                <a
-                  href="https://maps.google.com/?q=MIDC+Andheri+East+Mumbai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="font-display font-semibold border-primary/40 text-primary hover:bg-primary/5"
-                    data-ocid="directions-btn"
-                  >
-                    Get Directions
-                  </Button>
-                </a>
-              </div>
-            </Card>
-          </motion.div>
         </div>
       </section>
     </div>

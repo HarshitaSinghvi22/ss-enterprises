@@ -9,6 +9,7 @@ import AboutPage from "./pages/AboutPage";
 import ClientsPage from "./pages/ClientsPage";
 import ContactPage from "./pages/ContactPage";
 import HomePage from "./pages/HomePage";
+import PhitaPage from "./pages/PhitaPage";
 import ProductsPage from "./pages/ProductsPage";
 
 const rootRoute = createRootRoute({
@@ -45,12 +46,19 @@ const contactRoute = createRoute({
   component: ContactPage,
 });
 
+const phitaRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/phita",
+  component: PhitaPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   aboutRoute,
   productsRoute,
   clientsRoute,
   contactRoute,
+  phitaRoute,
 ]);
 
 const history = createBrowserHistory();
