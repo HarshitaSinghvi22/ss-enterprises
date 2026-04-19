@@ -1,0 +1,22 @@
+{
+  "overview": "A professional B2B corporate website for SS Enterprises, a company specializing in printing aluminium foils for FMCG and pharmaceutical industries. Features an About page, Products showcase, interactive Clients map, and Contact form.",
+  "features": [
+    "Home page with hero section and company overview",
+    "About Us page with history, mission, and core values",
+    "Products page showcasing aluminium foil product categories",
+    "Clients page with interactive world map showing supply locations",
+    "Contact Us page with form and company details",
+    "Responsive layout for desktop and mobile"
+  ],
+  "category": "business",
+  "tags": [
+    "corporate",
+    "b2b",
+    "manufacturing",
+    "aluminium",
+    "fmcg",
+    "pharmaceutical",
+    "informational"
+  ],
+  "last_updated": "2026-04-14T07:09:44.743Z"
+}
