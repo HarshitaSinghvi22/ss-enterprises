@@ -21,7 +21,7 @@ const capabilities = [
   {
     title: "Industrial Foil Solutions",
     desc: "Durable insulation and technical foil solutions for industrial applications.",
-    image: "/assets/generated/product-industrial-foil.dim_600x400.jpg",
+    image: "/assets/generated/Industrial Printing Press Assembly Line.png",
     link: "/products",
   },
 ];
@@ -113,7 +113,7 @@ export default function HomePage() {
               className="relative rounded-2xl overflow-hidden shadow-elevated lg:my-10"
             >
               <img
-                src="/assets/generated/hero-manufacturing.dim_1200x600.jpg"
+                src="/assets/generated/sse_bangalore.png"
                 alt="Industrial aluminum foil printing facility"
                 className="w-full h-72 lg:h-96 object-cover"
               />
