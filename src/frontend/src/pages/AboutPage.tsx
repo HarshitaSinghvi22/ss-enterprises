@@ -75,8 +75,7 @@ const certifications = [
 const locations = [
   { region: "Head Office", place: "Andheri East, Mumbai, Maharashtra" },
   { region: "Plant 1", place: "Vasai, Maharashtra" },
-  { region: "Plant 2", place: "Palghar, Maharashtra" },
-  { region: "Plant 3", place: "Hosakote, Bengaluru, Karnataka" },
+  { region: "Plant 2", place: "Hosakote, Bengaluru, Karnataka" },
 ];
 
 export default function AboutPage() {
@@ -173,7 +172,7 @@ export default function AboutPage() {
               Our Facilities
             </h2>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {locations.map((loc, i) => (
               <motion.div
                 key={loc.region}

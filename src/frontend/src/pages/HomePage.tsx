@@ -28,7 +28,7 @@ const capabilities = [
 
 const stats = [
   { value: "20+", label: "Years of Excellence" },
-  { value: "500+", label: "Global Clients" },
+  { value: "100+", label: "Global Clients" },
   { value: "15", label: "Countries Served" },
   { value: "99.8%", label: "Quality Pass Rate" },
 ];

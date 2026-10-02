@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -41125,7 +41126,7 @@ const locations = [
     tag: "Head Office",
     name: "SS Enterprises — Mumbai",
     address: "A-11 Hindsaurashtra Industrial Estate, Andheri Kurla Road, Andheri East, Mumbai 400059",
-    phones: ["022-28518090", "022-28516933", "022-66921956", "022-40146506"],
+    phones: ["9930145696", "9930145697", "022-40146506"],
     email: "mumbai@sspack.in",
     website: "www.sspack.in",
     mapsQuery: "A-11+Hindsaurashtra+Industrial+Estate+Andheri+East+Mumbai",
@@ -41172,20 +41173,62 @@ function ContactPage() {
   const handleChange = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (!form.name || !form.email || !form.message) {
+  //     ue.error("Please fill in all required fields.");
+  //     return;
+  //   }
+  //   setSubmitting(true);
+  //   await new Promise((r2) => setTimeout(r2, 1200));
+  //   ue.success(
+  //     "Your enquiry has been sent! We'll be in touch within 24 hours."
+  //   );
+  //   setForm(initialForm);
+  //   setSubmitting(false);
+  // };
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
-      ue.error("Please fill in all required fields.");
-      return;
-    }
+  e.preventDefault();
+
+  if (!form.name || !form.email || !form.message) {
+    ue.error("Please fill in all required fields.");
+    return;
+  }
+
+  try {
     setSubmitting(true);
-    await new Promise((r2) => setTimeout(r2, 1200));
+
+    await emailjs.send(
+      "service_edg8tjs", // your Service ID
+      "template_r3xeuxb", // your Template ID
+      {
+        name: form.name,
+        company: form.company,
+        email: form.email,
+        phone: form.phone,
+        industry: form.industry,
+        product: form.product,
+        message: form.message,
+      },
+      "B0gOX_38gX1OYO9KI" // your Public Key
+    );
+
     ue.success(
       "Your enquiry has been sent! We'll be in touch within 24 hours."
     );
+
     setForm(initialForm);
+
+  } catch (error) {
+    console.error(error);
+
+    ue.error("Failed to send enquiry. Please try again.");
+  } finally {
     setSubmitting(false);
-  };
+  }
+};
+
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "section",

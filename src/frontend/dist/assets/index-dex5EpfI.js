@@ -35098,105 +35098,90 @@ const clientLocations = [
     country: "India",
     city: "Mumbai",
     industry: "FMCG & Pharma",
-    clients: 120,
     region: "South Asia"
   },
   {
     country: "India",
     city: "Delhi",
     industry: "FMCG",
-    clients: 85,
     region: "South Asia"
   },
   {
     country: "India",
     city: "Ahmedabad",
     industry: "Pharma",
-    clients: 60,
     region: "South Asia"
   },
   {
     country: "Bangladesh",
     city: "Dhaka",
     industry: "FMCG",
-    clients: 25,
     region: "South Asia"
   },
   {
     country: "Sri Lanka",
     city: "Colombo",
     industry: "Pharma",
-    clients: 15,
     region: "South Asia"
   },
   {
     country: "UAE",
     city: "Dubai",
     industry: "FMCG",
-    clients: 35,
     region: "Middle East"
   },
   {
     country: "Saudi Arabia",
     city: "Riyadh",
     industry: "Pharma",
-    clients: 22,
     region: "Middle East"
   },
   {
     country: "Egypt",
     city: "Cairo",
     industry: "FMCG",
-    clients: 16,
     region: "Middle East"
   },
   {
     country: "Singapore",
     city: "Singapore",
     industry: "FMCG & Pharma",
-    clients: 28,
     region: "Southeast Asia"
   },
   {
     country: "Malaysia",
     city: "Kuala Lumpur",
     industry: "FMCG",
-    clients: 20,
     region: "Southeast Asia"
   },
   {
     country: "Nigeria",
     city: "Lagos",
     industry: "FMCG",
-    clients: 18,
     region: "Africa"
   },
   {
     country: "Kenya",
     city: "Nairobi",
     industry: "Pharma",
-    clients: 14,
     region: "Africa"
   },
   {
     country: "South Africa",
     city: "Johannesburg",
     industry: "Industrial",
-    clients: 11,
     region: "Africa"
   },
   {
     country: "UK",
     city: "London",
     industry: "Pharma",
-    clients: 12,
     region: "Europe"
   },
   {
     country: "Germany",
     city: "Frankfurt",
     industry: "Industrial",
-    clients: 10,
     region: "Europe"
   }
 ];
@@ -35260,8 +35245,8 @@ function ClientsPage() {
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-10 bg-primary", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-3 gap-6 text-center", children: [
-      { value: "500+", label: "Active Clients" },
-      { value: "15", label: "Countries" },
+      { value: "100+", label: "Active Clients" },
+      { value: "15+", label: "Countries" },
       { value: "3", label: "Sectors Served" }
     ].map((stat, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
       motion.div,
@@ -41239,10 +41224,10 @@ const capabilities = [
   }
 ];
 const stats = [
-  { value: "20+", label: "Years of Excellence" },
-  { value: "500+", label: "Global Clients" },
-  { value: "15", label: "Countries Served" },
-  { value: "99.8%", label: "Quality Pass Rate" }
+  { value: "30+", label: "Years of Excellence" },
+  { value: "100+", label: "Global Clients" },
+  { value: "15+", label: "Countries Served" },
+  { value: "99%", label: "Quality Pass Rate" }
 ];
 const whyUs = [
   {

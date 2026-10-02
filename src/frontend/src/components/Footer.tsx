@@ -91,17 +91,6 @@ export default function Footer() {
           <p className="text-muted-foreground text-xs">
             © {year} SS Enterprises. All rights reserved.
           </p>
-          <p className="text-muted-foreground text-xs">
-            Built with love using{" "}
-            <a
-              href={utmLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline transition-smooth"
-            >
-              caffeine.ai
-            </a>
-          </p>
         </div>
       </div>
     </footer>

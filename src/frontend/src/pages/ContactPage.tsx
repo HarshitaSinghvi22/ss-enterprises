@@ -24,6 +24,7 @@ import {
 import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
+import env from "../../env.json";
 
 const locations = [
   {
@@ -102,10 +103,31 @@ export default function ContactPage() {
       return;
     }
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    toast.success(
-      "Your enquiry has been sent! We'll be in touch within 24 hours.",
-    );
+    try {
+      const endpoint = (env as any).contact_form_endpoint;
+      if (endpoint) {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        });
+        if (!res.ok) throw new Error(`Failed to send (status ${res.status})`);
+        toast.success(
+          "Your enquiry has been sent! We'll be in touch within 24 hours.",
+        );
+      } else {
+        // Fallback: open user's mail client with prefilled subject/body
+        const subject = encodeURIComponent(`Enquiry from ${form.name}`);
+        const body = encodeURIComponent(
+          `Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\nPhone: ${form.phone}\nIndustry: ${form.industry}\nProduct: ${form.product}\n\nMessage:\n${form.message}`,
+        );
+        window.location.href = `mailto:info@sspack.in?subject=${subject}&body=${body}`;
+        toast.success("Opened your mail client to send the enquiry.");
+      }
+    } catch (err: any) {
+      console.error(err);
+      toast.error("Failed to send enquiry. Please try again later.");
+    }
     setForm(initialForm);
     setSubmitting(false);
   };
