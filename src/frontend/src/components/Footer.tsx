@@ -28,19 +28,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-sm">
-                  SS
-                </span>
-              </div>
-              <div>
-                <div className="font-display font-bold text-foreground text-sm tracking-tight">
-                  SS ENTERPRISES
-                </div>
-                <div className="text-muted-foreground text-[10px] tracking-widest uppercase">
-                  Aluminum Foil Specialists
-                </div>
-              </div>
+              <img
+                src="/assets/logo.png"
+                alt="SS Enterprises logo"
+                className="h-10 w-auto"
+              />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
               Precision aluminum foil printing for FMCG and pharmaceutical

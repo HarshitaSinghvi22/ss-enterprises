@@ -34,19 +34,11 @@ export default function Header() {
               to="/"
               className="flex items-center gap-3 group transition-smooth"
             >
-              <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center shadow-card">
-                <span className="text-primary-foreground font-display font-bold text-sm leading-none">
-                  SS
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-display font-bold text-foreground text-base leading-tight tracking-tight">
-                  SS ENTERPRISES
-                </span>
-                <span className="text-muted-foreground text-[10px] leading-tight tracking-widest uppercase">
-                  Aluminum Foil Specialists
-                </span>
-              </div>
+              <img
+                src="/assets/logo.png"
+                alt="SS Enterprises logo"
+                className="h-10 md:h-12 w-auto"
+              />
             </Link>
 
             {/* Desktop Nav */}

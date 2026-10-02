@@ -1,4 +1,3 @@
-import emailjs from "@emailjs/browser";
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -6789,7 +6788,7 @@ function mergeLoginOptions(loginOptions, otherLoginOptions) {
   };
 }
 const ONE_HOUR_IN_NANOSECONDS = BigInt(36e11);
-const DEFAULT_IDENTITY_PROVIDER = "https://id.ai";
+const DEFAULT_IDENTITY_PROVIDER = "https://identity.internetcomputer.org/";
 const InternetIdentityReactContext = reactExports.createContext(void 0);
 async function createAuthClient(createOptions) {
   const config = await loadConfig();
@@ -26824,17 +26823,17 @@ const contactInfo = [
 ];
 function Footer() {
   const year = (/* @__PURE__ */ new Date()).getFullYear();
-  const utmLink = `https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(typeof window !== "undefined" ? window.location.hostname : "")}`;
   return /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "bg-card border-t border-border mt-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-10", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-4", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-9 h-9 rounded-lg bg-primary flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-primary-foreground font-display font-bold text-sm", children: "SS" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-display font-bold text-foreground text-sm tracking-tight", children: "SS ENTERPRISES" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-muted-foreground text-[10px] tracking-widest uppercase", children: "Aluminum Foil Specialists" })
-          ] })
-        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "img",
+          {
+            src: "/assets/logo.png",
+            alt: "SS Enterprises logo",
+            className: "h-10 w-auto"
+          }
+        ) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed max-w-xs", children: "Precision aluminum foil printing for FMCG and pharmaceutical industries. Quality, compliance, and reliability since 2001." })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
@@ -26857,27 +26856,11 @@ function Footer() {
       ] })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, { className: "my-8" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row items-center justify-between gap-3", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground text-xs", children: [
-        "© ",
-        year,
-        " SS Enterprises. All rights reserved."
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground text-xs", children: [
-        "Built with love using",
-        " ",
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "a",
-          {
-            href: utmLink,
-            target: "_blank",
-            rel: "noopener noreferrer",
-            className: "text-primary hover:underline transition-smooth",
-            children: "caffeine.ai"
-          }
-        )
-      ] })
-    ] })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col sm:flex-row items-center justify-between gap-3", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground text-xs", children: [
+      "© ",
+      year,
+      " SS Enterprises. All rights reserved."
+    ] }) })
   ] }) });
 }
 const falsyToString = (value) => typeof value === "boolean" ? `${value}` : value === 0 ? "0" : value;
@@ -27067,18 +27050,19 @@ function Header() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: "sticky top-0 z-50 bg-card border-b border-border shadow-elevated", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between h-16 md:h-18", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
         Link,
         {
           to: "/",
           className: "flex items-center gap-3 group transition-smooth",
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-9 h-9 rounded-lg bg-primary flex items-center justify-center shadow-card", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-primary-foreground font-display font-bold text-sm leading-none", children: "SS" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display font-bold text-foreground text-base leading-tight tracking-tight", children: "SS ENTERPRISES" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground text-[10px] leading-tight tracking-widest uppercase", children: "Aluminum Foil Specialists" })
-            ] })
-          ]
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "img",
+            {
+              src: "/assets/logo.png",
+              alt: "SS Enterprises logo",
+              className: "h-10 md:h-12 w-auto"
+            }
+          )
         }
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -35110,8 +35094,7 @@ const certifications = [
 const locations$1 = [
   { region: "Head Office", place: "Andheri East, Mumbai, Maharashtra" },
   { region: "Plant 1", place: "Vasai, Maharashtra" },
-  { region: "Plant 2", place: "Palghar, Maharashtra" },
-  { region: "Plant 3", place: "Hosakote, Bengaluru, Karnataka" }
+  { region: "Plant 2", place: "Hosakote, Bengaluru, Karnataka" }
 ];
 function AboutPage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
@@ -35190,7 +35173,7 @@ function AboutPage() {
           ]
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4", children: locations$1.map((loc, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4", children: locations$1.map((loc, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
         motion.div,
         {
           initial: { opacity: 0, y: 16 },
@@ -41120,13 +41103,25 @@ reactExports.forwardRef(function(e, t) {
     })) : null;
   }));
 });
+const backend_host = "undefined";
+const backend_canister_id = "undefined";
+const project_id = "undefined";
+const ii_derivation_origin = "undefined";
+const contact_form_endpoint = "https://formspree.io/f/mykqnrgg";
+const env = {
+  backend_host,
+  backend_canister_id,
+  project_id,
+  ii_derivation_origin,
+  contact_form_endpoint
+};
 const locations = [
   {
     id: "head-office",
     tag: "Head Office",
     name: "SS Enterprises — Mumbai",
     address: "A-11 Hindsaurashtra Industrial Estate, Andheri Kurla Road, Andheri East, Mumbai 400059",
-    phones: ["9930145696", "9930145697", "022-40146506"],
+    phones: ["022-28518090", "022-28516933", "022-66921956", "022-40146506"],
     email: "mumbai@sspack.in",
     website: "www.sspack.in",
     mapsQuery: "A-11+Hindsaurashtra+Industrial+Estate+Andheri+East+Mumbai",
@@ -41173,62 +41168,33 @@ function ContactPage() {
   const handleChange = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   if (!form.name || !form.email || !form.message) {
-  //     ue.error("Please fill in all required fields.");
-  //     return;
-  //   }
-  //   setSubmitting(true);
-  //   await new Promise((r2) => setTimeout(r2, 1200));
-  //   ue.success(
-  //     "Your enquiry has been sent! We'll be in touch within 24 hours."
-  //   );
-  //   setForm(initialForm);
-  //   setSubmitting(false);
-  // };
-
   const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  if (!form.name || !form.email || !form.message) {
-    ue.error("Please fill in all required fields.");
-    return;
-  }
-
-  try {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.message) {
+      ue.error("Please fill in all required fields.");
+      return;
+    }
     setSubmitting(true);
-
-    await emailjs.send(
-      "service_edg8tjs", // your Service ID
-      "template_r3xeuxb", // your Template ID
-      {
-        name: form.name,
-        company: form.company,
-        email: form.email,
-        phone: form.phone,
-        industry: form.industry,
-        product: form.product,
-        message: form.message,
-      },
-      "B0gOX_38gX1OYO9KI" // your Public Key
-    );
-
-    ue.success(
-      "Your enquiry has been sent! We'll be in touch within 24 hours."
-    );
-
+    try {
+      const endpoint = env.contact_form_endpoint;
+      if (endpoint) {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form)
+        });
+        if (!res.ok) throw new Error(`Failed to send (status ${res.status})`);
+        ue.success(
+          "Your enquiry has been sent! We'll be in touch within 24 hours."
+        );
+      }
+    } catch (err) {
+      console.error(err);
+      ue.error("Failed to send enquiry. Please try again later.");
+    }
     setForm(initialForm);
-
-  } catch (error) {
-    console.error(error);
-
-    ue.error("Failed to send enquiry. Please try again.");
-  } finally {
     setSubmitting(false);
-  }
-};
-
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "section",
@@ -41734,7 +41700,7 @@ const capabilities = [
 ];
 const stats = [
   { value: "20+", label: "Years of Excellence" },
-  { value: "500+", label: "Global Clients" },
+  { value: "100+", label: "Global Clients" },
   { value: "15", label: "Countries Served" },
   { value: "99.8%", label: "Quality Pass Rate" }
 ];
