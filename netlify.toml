@@ -1,0 +1,3 @@
+[build]
+  command = "pnpm --dir src/frontend install --prefer-offline && pnpm --dir src/frontend build"
+  publish = "src/frontend/dist"

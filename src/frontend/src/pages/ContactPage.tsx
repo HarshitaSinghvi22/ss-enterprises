@@ -33,10 +33,11 @@ const locations = [
     name: "SS Enterprises — Mumbai",
     address:
       "A-11 Hindsaurashtra Industrial Estate, Andheri Kurla Road, Andheri East, Mumbai 400059",
-    phones: ["022-28518090", "022-28516933", "022-66921956", "022-40146506"],
+    phones: ["09930145696", "09930145697", "02240146506"],
     email: "mumbai@sspack.in",
-    website: "www.sspack.in",
-    mapsQuery: "A-11+Hindsaurashtra+Industrial+Estate+Andheri+East+Mumbai",
+    website: null,
+    mapsQuery:
+      "https://maps.app.goo.gl/vn4vBKjxCm2xgPJr8",
     accentClass: "bg-primary/10 text-primary border-primary/30",
     badgeClass: "border-primary/40 text-primary",
   },
@@ -46,10 +47,10 @@ const locations = [
     name: "SS Enterprises — Vasai",
     address:
       "Unit 16-18, Raj Tilak Industrial Estate, Chinchpada, Gokhiware, Vasai East, Dist Palghar, Maharashtra",
-    phones: ["09323145696"],
+    phones: ["09930145696"],
     email: "vasai@sspack.in",
     website: null,
-    mapsQuery: "Raj+Tilak+Industrial+Estate+Vasai+East+Palghar+Maharashtra",
+    mapsQuery: "https://maps.app.goo.gl/1HBnxLEpw8UhEoJXA",
     accentClass: "bg-accent/10 text-accent border-accent/30",
     badgeClass: "border-accent/40 text-accent",
   },
@@ -59,10 +60,10 @@ const locations = [
     name: "SS Enterprises — Bengaluru",
     address:
       "Plot No.58C, Road 1-A, Choklahally Industrial Area, Pillagumpe, Off Chintamani Road, Kasba-Hobli, Hosakote Taluk, Bengaluru, Karnataka 562114",
-    phones: ["080-29905736"],
+    phones: ["08029905736", "09930145698"],
     email: "bangalore@sspack.in",
     website: null,
-    mapsQuery: "Choklahally+Industrial+Area+Hosakote+Bengaluru+Karnataka",
+    mapsQuery: "https://maps.app.goo.gl/qbTdBBmKkaCWgS338",
     accentClass: "bg-primary/10 text-primary border-primary/30",
     badgeClass: "border-primary/40 text-primary",
   },
@@ -330,7 +331,7 @@ export default function ContactPage() {
                     </div>
 
                     <a
-                      href={`https://maps.google.com/?q=${loc.mapsQuery}`}
+                      href={loc.mapsQuery}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-auto"
@@ -436,10 +437,9 @@ export default function ContactPage() {
                       </div>
                       <div className="flex flex-col gap-0.5">
                         {[
-                          "022-28518090",
-                          "022-28516933",
-                          "022-66921956",
-                          "022-40146506",
+                          "02240146506",
+                          "09930145697",
+                          "09930145696",
                         ].map((ph) => (
                           <a
                             key={ph}

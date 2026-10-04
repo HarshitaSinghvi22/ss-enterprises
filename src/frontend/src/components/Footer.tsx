@@ -12,8 +12,8 @@ const quickLinks = [
 ];
 
 const contactInfo = [
-  { icon: Phone, text: "+91 98765 43210" },
-  { icon: Mail, text: "info@ssenterprises.in" },
+  { icon: Phone, text: "09820145696" },
+  { icon: Mail, text: "info@sspack.in" },
   { icon: MapPin, text: "Mumbai, Maharashtra, India" },
 ];
 
@@ -36,7 +36,7 @@ export default function Footer() {
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
               Precision aluminum foil printing for FMCG and pharmaceutical
-              industries. Quality, compliance, and reliability since 2001.
+              industries. Quality, compliance, and reliability since 1994.
             </p>
           </div>
 
